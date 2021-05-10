@@ -9,7 +9,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MisterRobotoArigato.Data;
 using MisterRobotoArigato.Models;
-using MisterRobotoArigato.Models.Handlers;
 
 namespace MisterRobotoArigato
 {
@@ -63,14 +62,12 @@ namespace MisterRobotoArigato
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("AdminOnly", policy => policy.RequireRole(ApplicationRoles.Admin));
-                options.AddPolicy("IsDoge", policy => policy.Requirements.Add(new IsDogeRequirement("doge")));
             });
 
             services.AddScoped<IRobotoRepo, DevRobotoRepo>();
             services.AddScoped<IBasketRepo, DevBasketRepo>();
             services.AddScoped<IOrderRepo, DevOrderRepo>();
 
-            services.AddSingleton<IAuthorizationHandler, IsDogeHandler>();
             services.AddScoped<IEmailSender, EmailSender>();
         }
 
