@@ -1,67 +1,79 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.AspNetCore.Mvc;
-using MisterRobotoArigato.Models;
-using MisterRobotoArigato.Models.ViewModel;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
+﻿namespace MisterRobotoArigato.Controllers {
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Identity.UI.Services;
+    using Microsoft.AspNetCore.Mvc;
+    using MisterRobotoArigato.Models;
+    using MisterRobotoArigato.Models.ViewModel;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Security.Claims;
+    using System.Threading.Tasks;
 
-namespace MisterRobotoArigato.Controllers
-{
+    /// <summary>
+    /// Defines the <see cref="AccountController" />.
+    /// </summary>
     [Authorize]
-    public class AccountController : Controller
-    {
+    public class AccountController : Controller {
+        /// <summary>
+        /// Defines the _userManager.
+        /// </summary>
         private UserManager<ApplicationUser> _userManager;
+
+        /// <summary>
+        /// Defines the _signInManager.
+        /// </summary>
         private SignInManager<ApplicationUser> _signInManager;
+
+        /// <summary>
+        /// Defines the _emailSender.
+        /// </summary>
         private IEmailSender _emailSender;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AccountController"/> class.
+        /// </summary>
+        /// <param name="userManager">The userManager<see cref="UserManager{ApplicationUser}"/>.</param>
+        /// <param name="signInManager">The signInManager<see cref="SignInManager{ApplicationUser}"/>.</param>
+        /// <param name="emailSender">The emailSender<see cref="IEmailSender"/>.</param>
         public AccountController(UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager, IEmailSender emailSender)
-        {
+            SignInManager<ApplicationUser> signInManager, IEmailSender emailSender) {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
         }
 
         /// <summary>
-        /// Displays the view of the Index action
+        /// Displays the view of the Index action.
         /// </summary>
-        /// <returns>the view of the account</returns>
-        public IActionResult Index()
-        {
+        /// <returns>the view of the account.</returns>
+        public IActionResult Index() {
             return View();
         }
 
         /// <summary>
-        /// Displays the view of the Register action
+        /// Displays the view of the Register action.
         /// </summary>
-        /// <returns>the view of the register action</returns>
+        /// <returns>the view of the register action.</returns>
         [AllowAnonymous]
         [HttpGet]
-        public IActionResult Register()
-        {
+        public IActionResult Register() {
             return View();
         }
 
         /// <summary>
         /// Creates a new user, assign claims and roles
-        /// Sends a welcome email to new users
+        /// Sends a welcome email to new users.
         /// </summary>
-        /// <param name="rvm"></param>
-        /// <returns>the RegisterViewModel object of information about the user</returns>
+        /// <param name="rvm">.</param>
+        /// <returns>the RegisterViewModel object of information about the user.</returns>
         [AllowAnonymous]
         [HttpPost, ActionName("Register")]
-        public async Task<IActionResult> RegisterConfirmed(RegisterViewModel rvm)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> RegisterConfirmed(RegisterViewModel rvm) {
+            if (ModelState.IsValid) {
                 //assign claims we'll be capturing to their respective variables
                 List<Claim> claims = new List<Claim>();
-                var user = new ApplicationUser
-                {
+                var user = new ApplicationUser {
                     UserName = rvm.Email,
                     Email = rvm.Email,
                     FirstName = rvm.FirstName,
@@ -89,7 +101,7 @@ namespace MisterRobotoArigato.Controllers
                     await _userManager.AddClaimsAsync(user, claims);
 
                     //assign roles
-                    if (user.Email == "doge@gmail.com" || user.Email == "ecaoile@my.hpu.edu") {
+                    if (user.Email == "ecaoile@my.hpu.edu") {
                         await _userManager.AddToRoleAsync(user, ApplicationRoles.Member);
                         await _userManager.AddToRoleAsync(user, ApplicationRoles.Admin);
                     }
@@ -106,69 +118,75 @@ namespace MisterRobotoArigato.Controllers
                     return RedirectToAction("Index", "Home");
                 }
                 else {
-                    var error = result.Errors.ToList(); //convert to list
-                    //iterojme ne cdo error
-                    foreach (var err in error) 
-                    {
-                        //kontrollojme nese eshte per password ose per email dhe e vendosim ne state
-                        if (err.Code.Contains("Password")) {
-                            ModelState.AddModelError("Password", err.Description);
-                        } else if (err.Code.Contains("Email") || err.Code.Contains("DuplicateUserName")) {
-                            ModelState.AddModelError("Email", err.Description);
 
+                    var errors = result.Errors.ToList();
+                    string errorsForPassword = "";
+                    string errorsForEmail = "";
+
+                    foreach (var error in errors) {
+
+                        //kontrollojme nese eshte per password ose per email dhe e vendosim ne state
+                        if (error.Code.Contains("Password")) {
+                            errorsForPassword += string.Join(System.Environment.NewLine, error.Description);
                         }
-                        //errList += string.Join(", ", err.Description);
+
+                        if (error.Code.Contains("Email") || error.Code.Contains("DuplicateUserName")) {
+                            errorsForEmail += string.Join(System.Environment.NewLine, error.Description);
+                        }
                     }
-                    
-                   // ModelState.AddModelError("Email", "This email already registered!");
+
+                    if (!string.IsNullOrEmpty(errorsForPassword)) {
+                        ModelState.AddModelError("Password", errorsForPassword.ToString());
+                    }
+
+                    if (!string.IsNullOrEmpty(errorsForEmail)) {
+                        ModelState.AddModelError("Email", errorsForEmail);
+                    }
+
+
+                    // ModelState.AddModelError("Email", "This email already registered!");
 
                     return View(rvm);
                 }
-              
+
             }
             return View(rvm);
         }
 
         /// <summary>
-        /// Displays the view of the login
+        /// Displays the view of the login.
         /// </summary>
-        /// <returns>the view of the Login action</returns>
+        /// <returns>the view of the Login action.</returns>
         [AllowAnonymous]
         [HttpGet]
-        public IActionResult Login()
-        {
+        public IActionResult Login() {
             return View();
         }
 
         /// <summary>
         /// Associates the user logging in to a user in the Db and
-        /// sends them a Welcome Back email
+        /// sends them a Welcome Back email.
         /// </summary>
-        /// <param name="lvm"></param>
-        /// <returns>a LoginViewModel object of information about a user</returns>
+        /// <param name="lvm">.</param>
+        /// <returns>a LoginViewModel object of information about a user.</returns>
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel lvm)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Login(LoginViewModel lvm) {
+            if (ModelState.IsValid) {
                 var result = await _signInManager.PasswordSignInAsync(lvm.Email, lvm.Password, false, false);
 
-                if (result.Succeeded)
-                {   //send an email welcoming the user back
+                if (result.Succeeded) {   //send an email welcoming the user back
                     var user = await _userManager.FindByEmailAsync(lvm.Email);
                     await _emailSender.SendEmailAsync(user.Email, "You've logged in",
                         "<h1><font color='blue'>You must really like our store!</font><h1>" +
                         "<h2>Our featured product this week is the <font color='red'>Mars Rover.</font></h2>" +
                         "<p>Buy one <b>today</b> and you'll be prepared to travel around your new planet in <i>style</i>.</p>");
-                    if (await _userManager.IsInRoleAsync(user, ApplicationRoles.Admin))
-                    {
+                    if (await _userManager.IsInRoleAsync(user, ApplicationRoles.Admin)) {
                         return RedirectToAction("Index", "Admin");
                     }
                     return RedirectToAction("Index", "Home");
                 }
-                else
-                {
+                else {
                     ModelState.AddModelError(string.Empty, "Please check your credentials.");
                 }
             }
@@ -176,15 +194,14 @@ namespace MisterRobotoArigato.Controllers
         }
 
         /// <summary>
-        /// Redirects a user, who chooses to use an external login, to that respective site to log in
+        /// Redirects a user, who chooses to use an external login, to that respective site to log in.
         /// </summary>
-        /// <param name="provider"></param>
-        /// <returns>Sends the user to the 3rd party site to login</returns>
+        /// <param name="provider">.</param>
+        /// <returns>Sends the user to the 3rd party site to login.</returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public IActionResult ExternalLogin(string provider)
-        {
+        public IActionResult ExternalLogin(string provider) {
             var redirectUrl = Url.Action(nameof(ExternalLoginCallback), "Account");
             var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
 
@@ -194,29 +211,25 @@ namespace MisterRobotoArigato.Controllers
         /// <summary>
         /// Captures the claims of a user who chooses to login with an external log in for the first time
         /// The result of the 3rd party login will be passed to this method
-        /// Users are sent a Welcome email
+        /// Users are sent a Welcome email.
         /// </summary>
-        /// <param name="remoteError"></param>
-        /// <returns>passes an ExternalLoginViewModel of claims captured from a user</returns>
+        /// <param name="remoteError">.</param>
+        /// <returns>passes an ExternalLoginViewModel of claims captured from a user.</returns>
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> ExternalLoginCallback(string remoteError = null)
-        {
-            if (remoteError != null)
-            {
+        public async Task<IActionResult> ExternalLoginCallback(string remoteError = null) {
+            if (remoteError != null) {
                 TempData["ErrorMessage"] = "Error from provider";
                 return RedirectToAction(nameof(Login));
             }
             var info = await _signInManager.GetExternalLoginInfoAsync();
 
-            if (info == null)
-            {
+            if (info == null) {
                 return RedirectToAction(nameof(Login));
             }
             var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
 
-            if (result.Succeeded)
-            {
+            if (result.Succeeded) {
                 return RedirectToAction("Index", "Home");
             }
 
@@ -229,8 +242,7 @@ namespace MisterRobotoArigato.Controllers
                         "<h1>Thank you for registering!</h1>" +
                         "<h4>We hope to fulfill all your <u>robotic</u> needs!</h4>");
 
-            return View("ExternalLogin", new ExternalLoginViewModel
-            {
+            return View("ExternalLogin", new ExternalLoginViewModel {
                 FirstName = firstName,
                 LastName = lastName,
                 Email = email
@@ -238,40 +250,34 @@ namespace MisterRobotoArigato.Controllers
         }
 
         /// <summary>
-        /// Assigns the claims to a user who uses a 3rd party OAUTH to log in
+        /// Assigns the claims to a user who uses a 3rd party OAUTH to log in.
         /// </summary>
-        /// <param name="elvm"></param>
-        /// <returns>directs the users to the index action of the home controller</returns>
+        /// <param name="elvm">.</param>
+        /// <returns>directs the users to the index action of the home controller.</returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ExternalLoginConfirmation(ExternalLoginViewModel elvm)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> ExternalLoginConfirmation(ExternalLoginViewModel elvm) {
+            if (ModelState.IsValid) {
                 var info = await _signInManager.GetExternalLoginInfoAsync();
-                if (info == null)
-                {
+                if (info == null) {
                     TempData["Error"] = "Error loading information";
                 }
 
-                RegisterViewModel rvm = new RegisterViewModel
-                {
+                RegisterViewModel rvm = new RegisterViewModel {
                     FirstName = elvm.FirstName,
                     LastName = elvm.LastName,
                     Email = elvm.Email
                 };
 
-                var user = new ApplicationUser
-                {
+                var user = new ApplicationUser {
                     FirstName = elvm.FirstName,
                     LastName = elvm.LastName,
                     UserName = elvm.Email,
                     Email = elvm.Email
                 };
                 var result = await _userManager.CreateAsync(user);
-                if (result.Succeeded)
-                {
+                if (result.Succeeded) {
                     List<Claim> claims = new List<Claim>();
 
                     //capturing the user's name
@@ -290,19 +296,16 @@ namespace MisterRobotoArigato.Controllers
                     //adds claim to the user
                     await _userManager.AddClaimsAsync(user, claims);
 
-                    if (user.Email == "ecaoile@my.hpu.edu")
-                    {
+                    if (user.Email == "ecaoile@my.hpu.edu") {
                         await _userManager.AddToRoleAsync(user, ApplicationRoles.Member);
                         await _userManager.AddToRoleAsync(user, ApplicationRoles.Admin);
                     }
-                    else
-                    {
+                    else {
                         await _userManager.AddToRoleAsync(user, ApplicationRoles.Member);
                     }
 
                     result = await _userManager.AddLoginAsync(user, info);
-                    if (result.Succeeded)
-                    {
+                    if (result.Succeeded) {
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         return RedirectToAction("Index", "Home");
                     }
@@ -313,11 +316,10 @@ namespace MisterRobotoArigato.Controllers
         }
 
         /// <summary>
-        /// Logs a user out
+        /// Logs a user out.
         /// </summary>
-        /// <returns>Directs the user back to the index action of the home controller</returns>
-        public async Task<IActionResult> Logout()
-        {
+        /// <returns>Directs the user back to the index action of the home controller.</returns>
+        public async Task<IActionResult> Logout() {
             await _signInManager.SignOutAsync();
             TempData["LoggedOut"] = "User Logged Out";
 

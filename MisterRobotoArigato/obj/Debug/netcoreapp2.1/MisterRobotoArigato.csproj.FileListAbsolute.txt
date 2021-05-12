@@ -33,7 +33,6 @@ C:\Users\User\Desktop\Projects\eCommerce-master\MisterRobotoArigato\MisterRoboto
 C:\Users\User\Desktop\Projects\eCommerce-master\MisterRobotoArigato\MisterRobotoArigato\obj\Debug\netcoreapp2.1\Razor\Views\Checkout\Confirmed.cshtml.g.cs
 C:\Users\User\Desktop\Projects\eCommerce-master\MisterRobotoArigato\MisterRobotoArigato\obj\Debug\netcoreapp2.1\Razor\Views\Checkout\Index.cshtml.g.cs
 C:\Users\User\Desktop\Projects\eCommerce-master\MisterRobotoArigato\MisterRobotoArigato\obj\Debug\netcoreapp2.1\Razor\Views\Checkout\Shipping.cshtml.g.cs
-C:\Users\User\Desktop\Projects\eCommerce-master\MisterRobotoArigato\MisterRobotoArigato\obj\Debug\netcoreapp2.1\Razor\Views\Doge\Index.cshtml.g.cs
 C:\Users\User\Desktop\Projects\eCommerce-master\MisterRobotoArigato\MisterRobotoArigato\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\User\Desktop\Projects\eCommerce-master\MisterRobotoArigato\MisterRobotoArigato\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Components\ShoppingCart\Default.cshtml.g.cs
 C:\Users\User\Desktop\Projects\eCommerce-master\MisterRobotoArigato\MisterRobotoArigato\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.cshtml.g.cs
