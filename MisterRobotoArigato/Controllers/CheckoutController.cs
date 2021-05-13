@@ -198,9 +198,15 @@ namespace MisterRobotoArigato.Controllers
                 htmlMessage += $"Item: {item.ProductName}, Quantity: {item.Quantity}</br>";
             };
 
+            CardInfo cardInfo = new CardInfo {
+                CardNumber = cvm.CardInfo.CardNumber,
+                CardCode = cvm.CardInfo.CardCode,
+                ExpirationDate = cvm.CardInfo.ExpirationDate
+            };
+
             //CHARGE CARD
             Payment payment = new Payment(Configuration);
-            payment.RunPayment(cvm.Total, datOrder, user);
+            payment.RunPayment(cvm.Total, datOrder, user, cardInfo);
 
             await _emailSender.SendEmailAsync(user.Email, "Order Information",
                         htmlMessage);
