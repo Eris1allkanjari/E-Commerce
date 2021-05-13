@@ -101,7 +101,7 @@ namespace MisterRobotoArigato.Controllers
             var user = await _userManager.FindByEmailAsync(User.Identity.Name);
             Basket datBasket = _basketRepo.GetUserBasketByEmail(user.Email).Result;
 
-            cvm.Basket = datBasket; ;
+            cvm.Basket = datBasket;
             return View("Shipping", cvm);
         }
 
@@ -142,8 +142,9 @@ namespace MisterRobotoArigato.Controllers
 
             cvm.Basket = datBasket;
 
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) 
                 return RedirectToAction(nameof(Shipping));
+            
             // add address to database
             await _orderRepo.CreateAddress(cvm.Address);
 

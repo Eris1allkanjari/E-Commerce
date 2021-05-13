@@ -153,35 +153,42 @@
                 <h4 class="mb-3">Payment</h4>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="cc-name">Name on card</label>
-                        <input type="text" class="form-control" id="cc-name" placeholder="Bob Gunderson" >
-                        <small class="text-muted">Full name as displayed on card</small>
-                        <div class="invalid-feedback">
-                            Name on card is required
-                        </div>
+                        @*<label for="cc-name">Name on card</label>
+        <input type="text" class="form-control" id="cc-name" placeholder="Bob Gunderson" >
+        <small class="text-muted">Full name as displayed on card</small>
+        <div class="invalid-feedback">
+            Name on card is required
+        </div>*@
+                        <label asp-for="CardInfo.CardName"></label>
+                        <input asp-for="CardInfo.CardName" type="text" class="form-control" id="cardName"  placeholder="Eris Allkanjari" required>
+                        <span asp-validation-for="CardInfo.CardName" class="text-danger"></span>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="cc-number">Credit card number</label>
-                        <input type="text" class="form-control" id="cc-number" placeholder="4111111111111111" value="4111111111111111" readonly>
-                        <div class="invalid-feedback">
-                            Credit card number is required
-                        </div>
+                        <label asp-for="CardInfo.CardNumber"></label>
+                        <input asp-for="CardInfo.CardNumber" type="text" class="form-control" id="cardNumber" placeholder="4111111111111111" required>
+                        <span asp-validation-for="CardInfo.CardNumber" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 mb-3">
-                        <label for="cc-expiration">Expiration</label>
-                        <input type="text" class="form-control" id="cc-expiration" placeholder="0718" readonly>
-                        <div class="invalid-feedback">
-                            Expiration date required
-                        </div>
+                        <label asp-for="CardInfo.ExpirationDate"></label>
+                        <input asp-for="CardInfo.ExpirationDate" type="text" class="form-control" id="cc-expiration" placeholder="0718" required>
+                        <span asp-validation-for="CardInfo.ExpirationDate" class="text-danger"></span>
+                        @*<label for="cc-expiration">Expiration</label>
+        <input type="text" class="form-control" id="cc-expiration" placeholder="0718" readonly>
+        <div class="invalid-feedback">
+            Expiration date required
+        </div>*@
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label for="cc-expiration">CVV</label>
-                        <input type="text" class="form-control" id="cc-cvv" placeholder="123" readonly>
-                        <div class="invalid-feedback">
-                            Security code required
-                        </div>
+                        <label asp-for="CardInfo.CardCode"></label>
+                        <input asp-for="CardInfo.CardCode" type="text" class="form-control" id="cc-cvv" placeholder="123" required>
+                        <span asp-validation-for="CardInfo.CardCode" class="text-danger"></span>
+                        @*<label for="cc-expiration">CVV</label>
+        <input type="text" class="form-control" id="cc-cvv" placeholder="123" readonly>
+        <div class="invalid-feedback">
+            Security code required
+        </div>*@
                     </div>
                 </div>
                 <hr class="mb-4">

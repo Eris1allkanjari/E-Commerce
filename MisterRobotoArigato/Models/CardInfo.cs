@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 namespace MisterRobotoArigato.Models {
     public class CardInfo {
         [Required]
-        public string CardNumber;
+        public string CardName { get; set; }
         [Required]
-        public string ExpirationDate;
+        public string CardNumber { get; set; }
         [Required]
-        public string CardCode;
+        public string ExpirationDate { get; set; }
+        [Required]
+        public string CardCode { get; set; }
     }
 }

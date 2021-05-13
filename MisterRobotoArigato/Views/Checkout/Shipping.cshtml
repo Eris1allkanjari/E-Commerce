@@ -77,53 +77,58 @@
                     <input type="hidden" asp-for="@Model.Total" value="@grandTotal" />
                 }
             </div>
-                <div class="col-md-8 order-md-1">
-                    <h4 class="mb-3">Shipping address</h4>
-                    <div class="d-inline-block">
-                        @Model.Address.FirstName @Model.Address.LastName<br />
-                        @Model.Address.Street<br />
-                        @if (Model.Address.Street2 != null)
-                        {
-                            @Model.Address.Street2<br />
-                        }
-                        @Model.Address.City @Model.Address.State<br />
-                        @Model.Address.Zip<br />
-                        @Model.Address.Country
-                    </div>
-                    <hr class="mb-4">
-                    <h4 class="mb-3">Choose your shipping method:</h4>
-                    <input type="hidden" asp-for="@Model.DiscountName" value="@Model.DiscountName" />
-                    <input type="hidden" asp-for="@Model.DiscountPercent" value="@Model.DiscountPercent" />
-                    <input type="hidden" asp-for="@Model.Address.FirstName" value="@Model.Address.FirstName" />
-                    <input type="hidden" asp-for="@Model.Address.LastName" value="@Model.Address.LastName" />
-                    <input type="hidden" asp-for="@Model.Address.Street" value="@Model.Address.Street" />
-                    @if (!String.IsNullOrEmpty(Model.Address.Street2))
-                    {
-                        <input type="hidden" asp-for="@Model.Address.Street2" value="@Model.Address.Street2" />
-                    }
-
-                    <input type="hidden" asp-for="@Model.Address.City" value="@Model.Address.City" />
-                    <input type="hidden" asp-for="@Model.Address.State" value="@Model.Address.State" />
-                    <input type="hidden" asp-for="@Model.Address.Zip" value="@Model.Address.Zip" />
-                    <input type="hidden" asp-for="@Model.Address.Country" value="@Model.Address.Country" />
-                    <input type="hidden" asp-for="@Model.Address.UserID" value="@Model.Address.UserID" />
-
-                    <div class="radio">
-                        <input type="radio" asp-for="Shipping" value="Roboto Rocket: 1 day" name="Shipping">
-                        <label>Roboto Rocket: 1 day</label>
-                    </div>
-                    <div class="radio">
-                        <input type="radio" asp-for="Shipping" value="Roboto Standard: 2 days" name="Shipping">
-                        <label>Roboto Standard: 2 days</label>
-                    </div>
-                    <div class="radio">
-                        <input type="radio" asp-for="Shipping" value="Roboto Snail: 3-5 days" name="Shipping">
-                        <label>Roboto Snail: 3-5 days</label>
-                    </div>
-                     
-                    <hr class="mb-4">
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">Checkout</button>
+            <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Shipping address</h4>
+                <div class="d-inline-block">
+                    @Model.Address.FirstName @Model.Address.LastName<br />
+                    @Model.Address.Street<br />
+                    @if (Model.Address.Street2 != null) {
+            @Model.Address.Street2<br />}
+                    @Model.Address.City @Model.Address.State<br />
+                    @Model.Address.Zip<br />
+                    @Model.Address.Country
+                    @*@Model.CardInfo.CardCode
+            @Model.CardInfo.CardNumber
+            @Model.CardInfo.ExpirationDate*@
                 </div>
+                <hr class="mb-4">
+                <h4 class="mb-3">Choose your shipping method:</h4>
+                <input type="hidden" asp-for="@Model.DiscountName" value="@Model.DiscountName" />
+                <input type="hidden" asp-for="@Model.DiscountPercent" value="@Model.DiscountPercent" />
+                <input type="hidden" asp-for="@Model.Address.FirstName" value="@Model.Address.FirstName" />
+                <input type="hidden" asp-for="@Model.Address.LastName" value="@Model.Address.LastName" />
+                <input type="hidden" asp-for="@Model.Address.Street" value="@Model.Address.Street" />
+                @if (!String.IsNullOrEmpty(Model.Address.Street2)) {
+            <input type="hidden" asp-for="@Model.Address.Street2" value="@Model.Address.Street2" />}
+
+                @*hidden fields needed to validate viewModel*@
+                <input type="hidden" asp-for="@Model.Address.City" value="@Model.Address.City" />
+                <input type="hidden" asp-for="@Model.Address.State" value="@Model.Address.State" />
+                <input type="hidden" asp-for="@Model.Address.Zip" value="@Model.Address.Zip" />
+                <input type="hidden" asp-for="@Model.Address.Country" value="@Model.Address.Country" />
+                <input type="hidden" asp-for="@Model.Address.UserID" value="@Model.Address.UserID" />
+
+                <input type="hidden" asp-for="@Model.CardInfo.CardName" value="@Model.CardInfo.CardName" />
+                <input type="hidden" asp-for="@Model.CardInfo.CardCode" value="@Model.CardInfo.CardCode" />
+                <input type="hidden" asp-for="@Model.CardInfo.CardNumber" value="@Model.CardInfo.CardNumber" />
+                <input type="hidden" asp-for="@Model.CardInfo.ExpirationDate" value="@Model.CardInfo.ExpirationDate" />
+
+                <div class="radio">
+                    <input type="radio" asp-for="Shipping" value="Roboto Rocket: 1 day" name="Shipping">
+                    <label>Roboto Rocket: 1 day</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" asp-for="Shipping" value="Roboto Standard: 2 days" name="Shipping">
+                    <label>Roboto Standard: 2 days</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" asp-for="Shipping" value="Roboto Snail: 3-5 days" name="Shipping">
+                    <label>Roboto Snail: 3-5 days</label>
+                </div>
+
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Checkout</button>
+            </div>
     </div>
 </div>
 </form>
