@@ -14,10 +14,12 @@
         public decimal Subtotal { get; set; }
         public decimal DiscountAmt { get; set; }
         public decimal Total { get; set; }
+        public CardInfo CardInfo { get; set; }
 
         public CheckoutViewModel()
         {
             Address = new Address();
+            CardInfo = new CardInfo();
         }
     }
 }

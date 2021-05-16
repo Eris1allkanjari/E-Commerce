@@ -16,7 +16,7 @@ namespace MisterRobotoArigato.Models
             Configuration = configuration;
         }
 
-        public string RunPayment(decimal amount, Order datOrder, ApplicationUser user)
+        public string RunPayment(decimal amount, Order datOrder, ApplicationUser user,CardInfo cardInfo)
         {
             ApiOperationBase<ANetApiRequest, ANetApiResponse>.RunEnvironment = AuthorizeNet.Environment.SANDBOX;
 
@@ -32,9 +32,9 @@ namespace MisterRobotoArigato.Models
 
             var creditCard = new creditCardType
             {
-                cardNumber = "4111111111111111",
-                expirationDate = "0728",
-                cardCode = "123"
+                cardNumber = cardInfo.CardNumber,
+                expirationDate = cardInfo.ExpirationDate,
+                cardCode = cardInfo.CardCode
             };
 
             customerAddressType billingAddress = new customerAddressType
