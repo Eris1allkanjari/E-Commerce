@@ -76,7 +76,7 @@ using Microsoft.AspNetCore.Identity;
             WriteLiteral("\n<div class=\"container\">\n    <h2>Admin Dashboard</h2>\n    <section>\n        ");
             EndContext();
             BeginContext(105, 106, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f1eaadde78f34ff78d69375abc400850", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "73e75cae20a140b4b62012df639c38f3", async() => {
                 BeginContext(190, 17, true);
                 WriteLiteral("View All Products");
                 EndContext();
@@ -101,7 +101,7 @@ using Microsoft.AspNetCore.Identity;
             WriteLiteral("\n        ");
             EndContext();
             BeginContext(220, 104, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e7cf8bb0bcbb47cabdf574b24ef430dd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c898cbe5f8b040fcb21e140b40c8351b", async() => {
                 BeginContext(307, 13, true);
                 WriteLiteral("Add a Product");
                 EndContext();
@@ -126,7 +126,7 @@ using Microsoft.AspNetCore.Identity;
             WriteLiteral("\n        ");
             EndContext();
             BeginContext(333, 115, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f72047270abf4c4a91e707cc53d412e4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27d983fc5bfb4071b2ffd4ab4c7a398f", async() => {
                 BeginContext(426, 18, true);
                 WriteLiteral("View Recent Orders");
                 EndContext();
