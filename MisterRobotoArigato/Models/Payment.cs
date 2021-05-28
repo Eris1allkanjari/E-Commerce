@@ -2,6 +2,7 @@
 using AuthorizeNet.Api.Controllers;
 using AuthorizeNet.Api.Controllers.Bases;
 using Microsoft.Extensions.Configuration;
+using MisterRobotoArigato.Exceptions;
 using System;
 using System.Collections.Generic;
 
@@ -107,6 +108,7 @@ namespace MisterRobotoArigato.Models
                         Console.WriteLine("Failed Transaction.");
                         if (response.transactionResponse.errors != null)
                         {
+                            throw new PaymentFailedException(response.transactionResponse.errors[0].errorText);
                             Console.WriteLine("Error Code: " + response.transactionResponse.errors[0].errorCode);
                             Console.WriteLine("Error message: " + response.transactionResponse.errors[0].errorText);
                         }
@@ -116,8 +118,9 @@ namespace MisterRobotoArigato.Models
                 {
                     Console.WriteLine("Failed Transaction.");
 
-                    if (response.transactionResponse != null && response.transactionResponse.errors != null)
-                    {
+                    if (response.transactionResponse != null && response.transactionResponse.errors != null) {
+                        throw new PaymentFailedException(response.transactionResponse.errors[0].errorText);
+
                         Console.WriteLine("Error Code: " + response.transactionResponse.errors[0].errorCode);
                         Console.WriteLine("Error message: " + response.transactionResponse.errors[0].errorText);
                     }

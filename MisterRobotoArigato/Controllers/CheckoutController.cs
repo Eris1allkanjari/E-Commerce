@@ -3,11 +3,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using MisterRobotoArigato.Data;
 using MisterRobotoArigato.Models;
 using MisterRobotoArigato.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace MisterRobotoArigato.Controllers
 {
@@ -20,6 +22,8 @@ namespace MisterRobotoArigato.Controllers
         private readonly IConfiguration Configuration;
         private readonly IEmailSender _emailSender;
         private UserManager<ApplicationUser> _userManager;
+        private RobotoDbContext _context;
+
 
         /// <summary>
         /// Bring in the information from the data layer for products, basket,
@@ -33,7 +37,7 @@ namespace MisterRobotoArigato.Controllers
         /// <param name="userManager"></param>
         public CheckoutController(IRobotoRepo robotoRepo, IConfiguration configuration,
             IBasketRepo basketRepo, IOrderRepo orderRepo,
-            IEmailSender emailSender, UserManager<ApplicationUser> userManager)
+            IEmailSender emailSender, UserManager<ApplicationUser> userManager, RobotoDbContext context)
         {
             _robotoRepo = robotoRepo;
             _basketRepo = basketRepo;
@@ -41,6 +45,7 @@ namespace MisterRobotoArigato.Controllers
             _userManager = userManager;
             _emailSender = emailSender;
             Configuration = configuration;
+            _context = context;
         }
 
         /// <summary>
@@ -137,84 +142,90 @@ namespace MisterRobotoArigato.Controllers
             var user = await _userManager.FindByEmailAsync(User.Identity.Name);
             Basket datBasket = _basketRepo.GetUserBasketByEmail(user.Email).Result;
 
-            if (datBasket.BasketItems.Count == 0)
-                return RedirectToAction(nameof(Index));
+            using (var transaction = _context.Database.BeginTransaction()) {
 
-            cvm.Basket = datBasket;
+                try {
+                    
 
-            if (!ModelState.IsValid) 
-                return RedirectToAction(nameof(Shipping));
-            
-            // add address to database
-            await _orderRepo.CreateAddress(cvm.Address);
+                    if (datBasket.BasketItems.Count == 0)
+                        return RedirectToAction(nameof(Index));
 
-            // create an new order object and load the order items onto it
-            Order datOrder = new Order
-            {
-                UserID = user.Id,
-                AddressID = cvm.Address.ID,
-                Address = cvm.Address,
-                OrderDate = DateTime.Now.ToString("MMM d, yyyy (ddd) @ HH:mm tt"),
-                Shipping = cvm.Shipping,
-                DiscountName = cvm.DiscountName,
-                DiscountPercent = cvm.DiscountPercent,
-                DiscountAmt = cvm.DiscountAmt,
-                TotalItemQty = cvm.TotalItemQty,
-                Subtotal = cvm.Subtotal,
-                Total = cvm.Total,
-            };
+                    cvm.Basket = datBasket;
 
-            // add order to the database table
-            // I'm doing this first in hopes that the order generates an ID that
-            // I can add to the order items. Here's hoping...
-            await _orderRepo.AddOrderAsync(datOrder);
+                    if (!ModelState.IsValid)
+                        return RedirectToAction(nameof(Shipping));
 
-            // turn basket items into order items
-            List<OrderItem> demOrderItems = new List<OrderItem>();
-            foreach (var item in datBasket.BasketItems)
-            {
-                OrderItem tempOrderItem = new OrderItem
-                {
-                    ProductID = item.ProductID,
-                    OrderID = datOrder.ID,
-                    UserID = user.Id,
-                    ProductName = item.ProductName,
-                    Quantity = item.Quantity,
-                    ImgUrl = item.ImgUrl,
-                    UnitPrice = item.UnitPrice
-                };
+                    // add address to database
+                    await _orderRepo.CreateAddress(cvm.Address);
 
-                // add order item to the database table
-                await _orderRepo.AddOrderItemToOrderAsync(tempOrderItem);
-                demOrderItems.Add(tempOrderItem);
+                    // create an new order object and load the order items onto it
+                    Order datOrder = new Order {
+                        UserID = user.Id,
+                        AddressID = cvm.Address.ID,
+                        Address = cvm.Address,
+                        OrderDate = DateTime.Now.ToString("MMM d, yyyy (ddd) @ HH:mm tt"),
+                        Shipping = cvm.Shipping,
+                        DiscountName = cvm.DiscountName,
+                        DiscountPercent = cvm.DiscountPercent,
+                        DiscountAmt = cvm.DiscountAmt,
+                        TotalItemQty = cvm.TotalItemQty,
+                        Subtotal = cvm.Subtotal,
+                        Total = cvm.Total,
+                    };
+
+                    // add order to the database table
+                    // I'm doing this first in hopes that the order generates an ID that
+                    // I can add to the order items. Here's hoping...
+                    await _orderRepo.AddOrderAsync(datOrder);
+
+                    // turn basket items into order items
+                    List<OrderItem> demOrderItems = new List<OrderItem>();
+                    foreach (var item in datBasket.BasketItems) {
+                        OrderItem tempOrderItem = new OrderItem {
+                            ProductID = item.ProductID,
+                            OrderID = datOrder.ID,
+                            UserID = user.Id,
+                            ProductName = item.ProductName,
+                            Quantity = item.Quantity,
+                            ImgUrl = item.ImgUrl,
+                            UnitPrice = item.UnitPrice
+                        };
+
+                        // add order item to the database table
+                        await _orderRepo.AddOrderItemToOrderAsync(tempOrderItem);
+                        demOrderItems.Add(tempOrderItem);
+                    }
+
+                    // attach orderitems to order
+                    datOrder.OrderItems = demOrderItems;
+
+                    //sends a receipt of the order information
+                    string htmlMessage = "Thank you for shopping with us!  You ordered: </br>";
+                    foreach (var item in datOrder.OrderItems) {
+                        htmlMessage += $"Item: {item.ProductName}, Quantity: {item.Quantity}</br>";
+                    };
+
+                    CardInfo cardInfo = new CardInfo {
+                        CardNumber = cvm.CardInfo.CardNumber,
+                        CardCode = cvm.CardInfo.CardCode,
+                        ExpirationDate = cvm.CardInfo.ExpirationDate
+                    };
+
+                    //CHARGE CARD
+                    Payment payment = new Payment(Configuration);
+                    payment.RunPayment(cvm.Total, datOrder, user, cardInfo);
+
+                    await _emailSender.SendEmailAsync(user.Email, "Order Information",
+                                htmlMessage);
+                    // empty out basket
+                    await _basketRepo.ClearOutBasket(cvm.Basket.BasketItems);
+
+                    return View("Confirmed", datOrder);
+                } catch (Exception e) {
+                    transaction.Rollback();
+                        return View("Index", cvm);
+                } 
             }
-
-            // attach orderitems to order
-            datOrder.OrderItems = demOrderItems;
-
-            //sends a receipt of the order information
-            string htmlMessage = "Thank you for shopping with us!  You ordered: </br>";
-            foreach (var item in datOrder.OrderItems)
-            {
-                htmlMessage += $"Item: {item.ProductName}, Quantity: {item.Quantity}</br>";
-            };
-
-            CardInfo cardInfo = new CardInfo {
-                CardNumber = cvm.CardInfo.CardNumber,
-                CardCode = cvm.CardInfo.CardCode,
-                ExpirationDate = cvm.CardInfo.ExpirationDate
-            };
-
-            //CHARGE CARD
-            Payment payment = new Payment(Configuration);
-            payment.RunPayment(cvm.Total, datOrder, user, cardInfo);
-
-            await _emailSender.SendEmailAsync(user.Email, "Order Information",
-                        htmlMessage);
-            // empty out basket
-            await _basketRepo.ClearOutBasket(cvm.Basket.BasketItems);
-
-            return View("Confirmed", datOrder);
         }
 
         /// <summary>

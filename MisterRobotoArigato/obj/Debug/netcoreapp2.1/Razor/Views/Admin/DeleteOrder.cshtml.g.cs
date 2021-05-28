@@ -404,12 +404,12 @@ WriteAttributeValue("", 1421, orderItem.ImgUrl, 1421, 17, false);
             WriteLiteral("</p>\n                </div>\n            </div>\n            <hr class=\"mb-4\">\n            ");
             EndContext();
             BeginContext(4258, 251, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b568bb2ec16c4bdea6fa04591e9dfe20", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "096c991e562f46d2a6727575e6d7d92f", async() => {
                 BeginContext(4335, 17, true);
                 WriteLiteral("\n                ");
                 EndContext();
                 BeginContext(4352, 36, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "fd3c0b17bafe42a883a48a4fbfe81324", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "205f8fa43b264428be320a449f8059d2", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -457,7 +457,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
             WriteLiteral("\n        </div>\n    </div>\n        ");
             EndContext();
             BeginContext(4544, 113, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dadc364123e94a5e901279736541588b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ef3d8690ae5e4646936718a0953c2869", async() => {
                 BeginContext(4634, 19, true);
                 WriteLiteral("Return to Order Log");
                 EndContext();

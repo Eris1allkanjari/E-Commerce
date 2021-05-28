@@ -44,7 +44,7 @@ namespace MisterRobotoArigato.Models
         /// <param name="order"></param>
         /// <returns>HTTP Status Code</returns>
         public async Task<HttpStatusCode> AddOrderAsync(Order order)
-        {
+        {   
             try
             {
                 _context.Add(order);

@@ -25,6 +25,7 @@
       "MisterRobotoArigato/1.0.0": {
         "dependencies": {
           "AuthorizeNet": "1.9.5",
+          "EntityFramework": "6.4.4",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Authentication.MicrosoftAccount": "2.1.1",
           "Microsoft.NETCore.App": "2.1.0",
@@ -50,6 +51,7 @@
           "lib/AuthorizeNet.dll": {}
         }
       },
+      "EntityFramework/6.4.4": {},
       "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
         "dependencies": {
           "Microsoft.CodeAnalysis.CSharp": "2.8.0",
@@ -3541,6 +3543,13 @@
       "sha512": "sha512-A4i+Fy0ih8GzNsTd/RuxZBjYBweiZAzKEGqrQqd0uiK9eaHJ7wqH3czJckHWlSOe4/StcGVIsfgKSR9Keo30nQ==",
       "path": "authorizenet/1.9.5",
       "hashPath": "authorizenet.1.9.5.nupkg.sha512"
+    },
+    "EntityFramework/6.4.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yj1+/4tci7Panu3jKDHYizxwVm0Jvm7b7m057b5h4u8NUHGCR8WIWirBTw+8EptRffwftIWPBeIRGNKD1ewEMQ==",
+      "path": "entityframework/6.4.4",
+      "hashPath": "entityframework.6.4.4.nupkg.sha512"
     },
     "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
       "type": "package",
