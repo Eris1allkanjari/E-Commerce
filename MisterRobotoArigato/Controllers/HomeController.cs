@@ -18,14 +18,5 @@ namespace MisterRobotoArigato.Controllers
             return View();
         }
 
-        /// <summary>
-        /// This action is only for bestest Doges
-        /// </summary>
-        /// <returns></returns>
-        [Authorize(Policy = "IsDoge")]
-        public IActionResult Doge()
-        {
-            return View();
-        }
     }
 }

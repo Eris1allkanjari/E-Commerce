@@ -74,12 +74,12 @@ namespace MisterRobotoArigato.Controllers
             {
                 string upperCaseCoupon = discountCoupon.ToUpper();
 
-                if (upperCaseCoupon == "IAMDOGE" || upperCaseCoupon == "ILIKEFATCATS")
+                if (upperCaseCoupon == "KARTEKLIENTI")
                 {
                     datCheckoutVM.DiscountPercent = 20;
                 }
 
-                if (upperCaseCoupon == "CODEFELLOWS")
+                if (upperCaseCoupon == "KARTESTUDENTI")
                 {
                     datCheckoutVM.DiscountPercent = 10;
                 }
@@ -223,7 +223,8 @@ namespace MisterRobotoArigato.Controllers
                     return View("Confirmed", datOrder);
                 } catch (Exception e) {
                     transaction.Rollback();
-                        return View("Index", cvm);
+                    ModelState.AddModelError(string.Empty, e.Message);
+                    return View("Index", cvm);
                 } 
             }
         }
