@@ -12,11 +12,11 @@ namespace MisterRobotoArigato.Models
 {
     public class DevOrderRepo : IOrderRepo
     {
-        private RobotoDbContext _context;
+        private EcommerceDbContext _context;
 
         private UserManager<ApplicationUser> _userManager;
 
-        public DevOrderRepo(RobotoDbContext context, UserManager<ApplicationUser> userManager)
+        public DevOrderRepo(EcommerceDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
             _userManager = userManager;

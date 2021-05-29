@@ -9,7 +9,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MisterRobotoArigato.Data;
 using MisterRobotoArigato.Models;
-using MisterRobotoArigato.Models.Handlers;
 
 namespace MisterRobotoArigato
 {
@@ -53,7 +52,7 @@ namespace MisterRobotoArigato
 
             var config2 = Configuration.GetConnectionString("DefaultConnection");
             System.Console.WriteLine(config2);           //Which database to connect to
-            services.AddDbContext<RobotoDbContext>(options =>
+            services.AddDbContext<EcommerceDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<ApplicationDbContext>(options =>

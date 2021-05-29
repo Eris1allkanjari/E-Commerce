@@ -9,7 +9,7 @@ using MisterRobotoArigato.Data;
 
 namespace MisterRobotoArigato.Migrations
 {
-    [DbContext(typeof(RobotoDbContext))]
+    [DbContext(typeof(EcommerceDbContext))]
     [Migration("20180728221157_sprint3")]
     partial class sprint3
     {

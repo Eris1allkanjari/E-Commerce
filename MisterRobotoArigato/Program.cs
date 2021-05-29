@@ -23,7 +23,7 @@ namespace MisterRobotoArigato
                 try
                 {
                     StartupDbInitializer.SeedData(services, userManager);
-                    var context = services.GetRequiredService<RobotoDbContext>();
+                    var context = services.GetRequiredService<EcommerceDbContext>();
                     context.Database.Migrate();
                     SeedData.Initialize(services);
                 }

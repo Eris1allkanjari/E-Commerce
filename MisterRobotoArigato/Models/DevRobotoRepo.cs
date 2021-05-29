@@ -11,9 +11,9 @@ namespace MisterRobotoArigato.Models
 {
     public class DevRobotoRepo : IRobotoRepo
     {
-        private RobotoDbContext _context;
+        private EcommerceDbContext _context;
 
-        public DevRobotoRepo(RobotoDbContext context)
+        public DevRobotoRepo(EcommerceDbContext context)
         {
             _context = context;
         }

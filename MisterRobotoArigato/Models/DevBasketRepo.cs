@@ -10,9 +10,9 @@ namespace MisterRobotoArigato.Models
 {
     public class DevBasketRepo : IBasketRepo
     {
-        private RobotoDbContext _context;
+        private EcommerceDbContext _context;
 
-        public DevBasketRepo(RobotoDbContext context)
+        public DevBasketRepo(EcommerceDbContext context)
         {
             _context = context;
         }

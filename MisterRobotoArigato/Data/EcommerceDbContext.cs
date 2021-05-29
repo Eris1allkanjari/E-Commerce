@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace MisterRobotoArigato.Data
 {
-    public class RobotoDbContext : DbContext
+    public class EcommerceDbContext : DbContext
     {
-        public RobotoDbContext(DbContextOptions<RobotoDbContext> options) : base (options)
+        public EcommerceDbContext(DbContextOptions<EcommerceDbContext> options) : base (options)
         {
 
         }

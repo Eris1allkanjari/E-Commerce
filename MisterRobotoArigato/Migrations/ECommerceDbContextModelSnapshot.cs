@@ -8,8 +8,8 @@ using MisterRobotoArigato.Data;
 
 namespace MisterRobotoArigato.Migrations
 {
-    [DbContext(typeof(RobotoDbContext))]
-    partial class RobotoDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(EcommerceDbContext))]
+    partial class ECommerceDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

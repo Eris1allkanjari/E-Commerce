@@ -399,7 +399,7 @@ WriteAttributeValue("", 1512, orderItem.ImgUrl, 1512, 17, false);
             WriteLiteral("</p>\n                        </div>\n                    </div>\n                    <hr class=\"mb-4\">\n                    ");
             EndContext();
             BeginContext(4684, 131, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1abe39a719f44b39bf11b9790489215c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bfac12720cd1497aba29839cda1c8fcc", async() => {
                 BeginContext(4799, 12, true);
                 WriteLiteral("Cancel Order");
                 EndContext();
@@ -445,7 +445,7 @@ WriteAttributeValue("", 1512, orderItem.ImgUrl, 1512, 17, false);
             WriteLiteral("</div>\n<br />\n<div class=\"container\">\n    ");
             EndContext();
             BeginContext(4926, 124, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "078fc97116314d7eb647f11f3d914d5a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "15bb0947358e4886b28c10426834a204", async() => {
                 BeginContext(5029, 17, true);
                 WriteLiteral("Continue Shopping");
                 EndContext();

@@ -12839,9 +12839,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\MisterRobotoArigato\\MisterRobotoArigato\\MisterRobotoArigato.csproj",
-      "projectName": "MisterRobotoArigato",
-      "projectPath": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\MisterRobotoArigato\\MisterRobotoArigato\\MisterRobotoArigato.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\MisterRobotoArigato\\MisterRobotoArigato\\EcommerceApp.csproj",
+      "projectName": "EcommerceApp",
+      "projectPath": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\MisterRobotoArigato\\MisterRobotoArigato\\EcommerceApp.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\MisterRobotoArigato\\MisterRobotoArigato\\obj\\",
       "projectStyle": "PackageReference",

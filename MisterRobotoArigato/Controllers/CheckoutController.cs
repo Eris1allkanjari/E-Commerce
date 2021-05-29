@@ -22,7 +22,7 @@ namespace MisterRobotoArigato.Controllers
         private readonly IConfiguration Configuration;
         private readonly IEmailSender _emailSender;
         private UserManager<ApplicationUser> _userManager;
-        private RobotoDbContext _context;
+        private EcommerceDbContext _context;
 
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace MisterRobotoArigato.Controllers
         /// <param name="userManager"></param>
         public CheckoutController(IRobotoRepo robotoRepo, IConfiguration configuration,
             IBasketRepo basketRepo, IOrderRepo orderRepo,
-            IEmailSender emailSender, UserManager<ApplicationUser> userManager, RobotoDbContext context)
+            IEmailSender emailSender, UserManager<ApplicationUser> userManager, EcommerceDbContext context)
         {
             _robotoRepo = robotoRepo;
             _basketRepo = basketRepo;

@@ -10,8 +10,8 @@ namespace MisterRobotoArigato.Models
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new RobotoDbContext(
-                    serviceProvider.GetRequiredService<DbContextOptions<RobotoDbContext>>()))
+            using (var context = new EcommerceDbContext(
+                    serviceProvider.GetRequiredService<DbContextOptions<EcommerceDbContext>>()))
             {
                 if (context.Products.Any()) return;
 
