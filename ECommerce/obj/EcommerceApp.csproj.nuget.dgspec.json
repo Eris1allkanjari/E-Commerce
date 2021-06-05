@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[1.9.5, )"
             },
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
             "Microsoft.AspNetCore.App": {
               "target": "Package",
               "version": "[2.1.1, )"
