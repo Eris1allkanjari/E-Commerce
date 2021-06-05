@@ -4,22 +4,16 @@ using Ecommerce.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-<<<<<<< HEAD:ECommerce/Ecommerce/Migrations/EcommerceDbContextModelSnapshot.cs
-=======
-using Ecommerce.Data;
->>>>>>> master:ECommerce/Migrations/ECommerceDbContextModelSnapshot.cs
 
 namespace Ecommerce.Migrations
 {
     [DbContext(typeof(EcommerceDbContext))]
-<<<<<<< HEAD:ECommerce/Ecommerce/Migrations/EcommerceDbContextModelSnapshot.cs
-    partial class EcommerceDbContextModelSnapshot : ModelSnapshot
-=======
-    partial class ECommerceDbContextModelSnapshot : ModelSnapshot
->>>>>>> master:ECommerce/Migrations/ECommerceDbContextModelSnapshot.cs
+    [Migration("20210605124633_UpdatedProducts")]
+    partial class UpdatedProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

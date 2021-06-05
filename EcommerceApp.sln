@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\vulnerability-report.md = ..\vulnerability-report.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceApp", "E-Commerce\EcommerceApp.csproj", "{3289CF61-8BFA-4AE9-8057-B2B7CBAAC8E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceApp", "ECommerce\EcommerceApp.csproj", "{BDD14338-C311-490F-9ED2-40506B18AD9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3289CF61-8BFA-4AE9-8057-B2B7CBAAC8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3289CF61-8BFA-4AE9-8057-B2B7CBAAC8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3289CF61-8BFA-4AE9-8057-B2B7CBAAC8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3289CF61-8BFA-4AE9-8057-B2B7CBAAC8E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDD14338-C311-490F-9ED2-40506B18AD9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDD14338-C311-490F-9ED2-40506B18AD9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDD14338-C311-490F-9ED2-40506B18AD9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDD14338-C311-490F-9ED2-40506B18AD9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

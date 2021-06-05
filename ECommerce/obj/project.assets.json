@@ -12839,11 +12839,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\MisterRobotoArigato\\E-Commerce\\EcommerceApp.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\EcommerceApp\\ECommerce\\EcommerceApp.csproj",
       "projectName": "EcommerceApp",
-      "projectPath": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\MisterRobotoArigato\\E-Commerce\\EcommerceApp.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\EcommerceApp\\ECommerce\\EcommerceApp.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\MisterRobotoArigato\\E-Commerce\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\EcommerceApp\\ECommerce\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -12922,6 +12922,12 @@
     }
   },
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\EcommerceApp\\ECommerce\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",

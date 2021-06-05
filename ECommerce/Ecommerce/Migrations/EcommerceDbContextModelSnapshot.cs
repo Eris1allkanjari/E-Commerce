@@ -5,19 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-<<<<<<< HEAD:ECommerce/Ecommerce/Migrations/EcommerceDbContextModelSnapshot.cs
-=======
-using Ecommerce.Data;
->>>>>>> master:ECommerce/Migrations/ECommerceDbContextModelSnapshot.cs
 
 namespace Ecommerce.Migrations
 {
     [DbContext(typeof(EcommerceDbContext))]
-<<<<<<< HEAD:ECommerce/Ecommerce/Migrations/EcommerceDbContextModelSnapshot.cs
     partial class EcommerceDbContextModelSnapshot : ModelSnapshot
-=======
-    partial class ECommerceDbContextModelSnapshot : ModelSnapshot
->>>>>>> master:ECommerce/Migrations/ECommerceDbContextModelSnapshot.cs
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
