@@ -22,11 +22,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-<<<<<<< HEAD
-      "MisterRobotoArigato/1.0.0": {
-=======
       "EcommerceApp/1.0.0": {
->>>>>>> master
         "dependencies": {
           "AuthorizeNet": "1.9.5",
           "EntityFramework": "6.4.4",
@@ -38,17 +34,10 @@
           "System.Configuration.ConfigurationManager": "4.5.0"
         },
         "runtime": {
-<<<<<<< HEAD
-          "MisterRobotoArigato.dll": {}
-        },
-        "compile": {
-          "MisterRobotoArigato.dll": {}
-=======
           "EcommerceApp.dll": {}
         },
         "compile": {
           "EcommerceApp.dll": {}
->>>>>>> master
         }
       },
       "AuthorizeNet/1.9.5": {
@@ -3543,11 +3532,7 @@
     }
   },
   "libraries": {
-<<<<<<< HEAD
-    "MisterRobotoArigato/1.0.0": {
-=======
     "EcommerceApp/1.0.0": {
->>>>>>> master
       "type": "project",
       "serviceable": false,
       "sha512": ""

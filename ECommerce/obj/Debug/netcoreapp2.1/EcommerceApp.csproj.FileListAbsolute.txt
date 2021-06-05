@@ -51,7 +51,6 @@ C:\Users\User\Desktop\Projects\eCommerce-master\MisterRobotoArigato\E-Commerce\o
 C:\Users\User\Desktop\Projects\eCommerce-master\MisterRobotoArigato\E-Commerce\obj\Debug\netcoreapp2.1\EcommerceApp.Views.pdb
 C:\Users\User\Desktop\Projects\eCommerce-master\MisterRobotoArigato\E-Commerce\obj\Debug\netcoreapp2.1\EcommerceApp.genruntimeconfig.cache
 C:\Users\User\Desktop\Projects\eCommerce-master\MisterRobotoArigato\E-Commerce\obj\Debug\netcoreapp2.1\EcommerceApp.csproj.CopyComplete
-<<<<<<< HEAD
 C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\bin\Debug\netcoreapp2.1\appsettings.json
 C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\bin\Debug\netcoreapp2.1\compilerconfig.json
 C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\bin\Debug\netcoreapp2.1\EcommerceApp.deps.json
@@ -105,5 +104,3 @@ C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\obj\Debug
 C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\obj\Debug\netcoreapp2.1\EcommerceApp.pdb
 C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\obj\Debug\netcoreapp2.1\EcommerceApp.genruntimeconfig.cache
 C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\obj\Debug\netcoreapp2.1\EcommerceApp.csproj.CopyComplete
-=======
->>>>>>> master
