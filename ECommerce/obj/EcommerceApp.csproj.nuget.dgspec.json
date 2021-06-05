@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\MisterRobotoArigato\\E-Commerce\\EcommerceApp.csproj": {}
+    "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\EcommerceApp\\ECommerce\\EcommerceApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\MisterRobotoArigato\\E-Commerce\\EcommerceApp.csproj": {
+    "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\EcommerceApp\\ECommerce\\EcommerceApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\MisterRobotoArigato\\E-Commerce\\EcommerceApp.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\EcommerceApp\\ECommerce\\EcommerceApp.csproj",
         "projectName": "EcommerceApp",
-        "projectPath": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\MisterRobotoArigato\\E-Commerce\\EcommerceApp.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\EcommerceApp\\ECommerce\\EcommerceApp.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\MisterRobotoArigato\\E-Commerce\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\Projects\\eCommerce-master\\EcommerceApp\\ECommerce\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -43,10 +43,6 @@
             "AuthorizeNet": {
               "target": "Package",
               "version": "[1.9.5, )"
-            },
-            "EntityFramework": {
-              "target": "Package",
-              "version": "[6.4.4, )"
             },
             "Microsoft.AspNetCore.App": {
               "target": "Package",
