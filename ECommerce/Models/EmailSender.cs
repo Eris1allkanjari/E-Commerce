@@ -29,7 +29,7 @@ namespace Ecommerce.Models
         {
             var msg = new SendGridMessage();
 
-            msg.SetFrom("admin@misterrobotoarigato.com", "Mister Arigato Roboto Admin");
+            msg.SetFrom("eris.allkanjari@gmail.com", "Eris Allkanjari");
 
             msg.AddTo(email);
             msg.SetSubject(subject);

@@ -9,11 +9,11 @@ using Ecommerce.Data;
 
 namespace Ecommerce.Models
 {
-    public class DevRobotoRepo : IRobotoRepo
+    public class DevAdminRepo : IEcommerceRepo
     {
         private EcommerceDbContext _context;
 
-        public DevRobotoRepo(EcommerceDbContext context)
+        public DevAdminRepo(EcommerceDbContext context)
         {
             _context = context;
         }

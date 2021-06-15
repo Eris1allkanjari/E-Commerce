@@ -13,14 +13,14 @@ namespace Ecommerce.Controllers
     [Authorize(Policy = "AdminOnly")]
     public class AdminController : Controller
     {
-        private readonly IRobotoRepo _robotoRepo;
+        private readonly IEcommerceRepo _adminRepo;
         private readonly IConfiguration Configuration;
         private readonly IOrderRepo _orderRepo;
         //private readonly ICheckoutRepo _checkoutRepo;
 
-        public AdminController(IRobotoRepo robotoRepo, IConfiguration configuration, IOrderRepo orderRepo)
+        public AdminController(IEcommerceRepo _adminRepo, IConfiguration configuration, IOrderRepo orderRepo)
         {
-            _robotoRepo = robotoRepo;
+            _adminRepo = _adminRepo;
             _orderRepo = orderRepo;
             Configuration = configuration;
         }
@@ -37,7 +37,7 @@ namespace Ecommerce.Controllers
         [HttpGet, ActionName("ViewAll")]
         public async Task<IActionResult> GetAllProducts()
         {
-            List<Product> products = await _robotoRepo.GetProducts();
+            List<Product> products = await _adminRepo.GetProducts();
             ProductListingVM productListVM = new ProductListingVM
             {
                 Products = products
@@ -64,7 +64,7 @@ namespace Ecommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _robotoRepo.CreateProduct(product);
+                await _adminRepo.CreateProduct(product);
                 return RedirectToAction("ViewAll");
             }
             return View(product);
@@ -77,7 +77,7 @@ namespace Ecommerce.Controllers
         /// <returns></returns>
         public async Task<IActionResult> Edit(int? id)
         {
-            var product = await _robotoRepo.GetProductById(id);
+            var product = await _adminRepo.GetProductById(id);
             if (product == null)
             {
                 return RedirectToAction("ViewAll");
@@ -89,7 +89,7 @@ namespace Ecommerce.Controllers
         {
             if (id == null) return NotFound();
 
-            var foundProduct = await _robotoRepo.GetProductById(id);
+            var foundProduct = await _adminRepo.GetProductById(id);
 
             if (foundProduct == null) return NotFound();
 
@@ -116,7 +116,7 @@ namespace Ecommerce.Controllers
             {
                 try
                 {
-                    await _robotoRepo.UpdateProduct(id, product);
+                    await _adminRepo.UpdateProduct(id, product);
                 }
                 catch (DbUpdateConcurrencyException)
                 {//prevents a double post in case a product is getting posted at the same time
@@ -146,7 +146,7 @@ namespace Ecommerce.Controllers
                 return RedirectToAction("ViewAll");
             }
 
-            var product = await _robotoRepo.GetProductById(id);
+            var product = await _adminRepo.GetProductById(id);
             if (product == null)
             {
                 return RedirectToAction("ViewAll");
@@ -163,7 +163,7 @@ namespace Ecommerce.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmAsync(int id)
         {
-            await _robotoRepo.DeleteProduct(id);
+            await _adminRepo.DeleteProduct(id);
             return RedirectToAction("ViewAll");
         }
         
@@ -206,7 +206,7 @@ namespace Ecommerce.Controllers
         /// <returns>bool</returns>
         private async Task<bool> ProductExistsAsync(int id)
         {
-            var products = await _robotoRepo.GetProducts();
+            var products = await _adminRepo.GetProducts();
             return products.Any(p => p.ID == id);
         }
     }

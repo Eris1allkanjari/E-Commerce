@@ -10,7 +10,7 @@ namespace Ecommerce.Models
     /// <summary>
     /// Interface layer to communicate with the inventory database
     /// </summary>
-    public interface IRobotoRepo
+    public interface IEcommerceRepo
     {
         Task<HttpStatusCode> CreateProduct(Product product);
 

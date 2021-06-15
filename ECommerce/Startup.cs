@@ -36,20 +36,7 @@ namespace Ecommerce
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            //this is needed to use OAUTH from Google and MS
-            //these service requests are chained as suggested by the MS Docs
-            //services.AddAuthentication().AddGoogle(google =>
-            //{
-            //    google.ClientId = Configuration["Authentication:Google:ClientId"];
-            //    google.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-            //})
-            //.AddMicrosoftAccount(microsoftOptions =>
-            //{
-            //    microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ApplicationId"];
-            //    microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
-            //    microsoftOptions.CallbackPath = new PathString("/signin-microsoft");
-            //});
-
+        
             var config2 = Configuration.GetConnectionString("DefaultConnection");
             System.Console.WriteLine(config2);           //Which database to connect to
             services.AddDbContext<EcommerceDbContext>(options =>
@@ -58,13 +45,13 @@ namespace Ecommerce
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            //policies being enforced by Mister Roboto Arigato
+            //policies being enforced by Admin
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("AdminOnly", policy => policy.RequireRole(ApplicationRoles.Admin));
             });
 
-            services.AddScoped<IRobotoRepo, DevRobotoRepo>();
+            services.AddScoped<IEcommerceRepo, DevAdminRepo>();
             services.AddScoped<IBasketRepo, DevBasketRepo>();
             services.AddScoped<IOrderRepo, DevOrderRepo>();
 

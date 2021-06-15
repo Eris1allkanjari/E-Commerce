@@ -6,9 +6,9 @@ namespace Ecommerce.Controllers
 {
     public class HomeController : Controller
     {
-        private IRobotoRepo _repo;
+        private IEcommerceRepo _repo;
 
-        public HomeController(IRobotoRepo repo)
+        public HomeController(IEcommerceRepo repo)
         {
             _repo = repo;
         }

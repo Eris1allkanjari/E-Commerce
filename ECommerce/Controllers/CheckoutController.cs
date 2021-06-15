@@ -16,7 +16,7 @@ namespace Ecommerce.Controllers
     [Authorize]
     public class CheckoutController : Controller
     {
-        private readonly IRobotoRepo _robotoRepo;
+        private readonly IEcommerceRepo _adminRepo;
         private readonly IBasketRepo _basketRepo;
         private readonly IOrderRepo _orderRepo;
         private readonly IConfiguration Configuration;
@@ -29,17 +29,17 @@ namespace Ecommerce.Controllers
         /// Bring in the information from the data layer for products, basket,
         /// checkout, emailSender
         /// </summary>
-        /// <param name="robotoRepo"></param>
+        /// <param name="adminRepo"></param>
         /// <param name="configuration"></param>
         /// <param name="basketRepo"></param>
         /// <param name="orderRepo"></param>
         /// <param name="emailSender"></param>
         /// <param name="userManager"></param>
-        public CheckoutController(IRobotoRepo robotoRepo, IConfiguration configuration,
+        public CheckoutController(IEcommerceRepo adminRepo, IConfiguration configuration,
             IBasketRepo basketRepo, IOrderRepo orderRepo,
             IEmailSender emailSender, UserManager<ApplicationUser> userManager, EcommerceDbContext context)
         {
-            _robotoRepo = robotoRepo;
+            _adminRepo = adminRepo;
             _basketRepo = basketRepo;
             _orderRepo = orderRepo;
             _userManager = userManager;

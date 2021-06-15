@@ -8,7 +8,7 @@ namespace Ecommerce.Controllers.Components
 {
     public class ShoppingCart : ViewComponent
     {
-        private readonly IRobotoRepo _robotoRepo;
+        private readonly IEcommerceRepo _adminRepo;
         private readonly IBasketRepo _basketRepo;
         private readonly IConfiguration Configuration;
         private UserManager<ApplicationUser> _userManager;
@@ -16,14 +16,14 @@ namespace Ecommerce.Controllers.Components
         /// <summary>
         /// bring in the information from the data layer for the inventory and basket information
         /// </summary>
-        /// <param name="robotoRepo"></param>
+        /// <param name="adminRepo"></param>
         /// <param name="configuration"></param>
         /// <param name="basketRepo"></param>
         /// <param name="userManager"></param>
-        public ShoppingCart(IRobotoRepo robotoRepo, IConfiguration configuration, IBasketRepo basketRepo,
+        public ShoppingCart(IEcommerceRepo adminRepo, IConfiguration configuration, IBasketRepo basketRepo,
             UserManager<ApplicationUser> userManager)
         {
-            _robotoRepo = robotoRepo;
+            _adminRepo = adminRepo;
             _basketRepo = basketRepo;
             _userManager = userManager;
             Configuration = configuration;

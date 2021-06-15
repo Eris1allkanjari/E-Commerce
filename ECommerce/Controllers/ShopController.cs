@@ -12,17 +12,17 @@ namespace Ecommerce.Controllers
 {
     public class ShopController : Controller
     {
-        private readonly IRobotoRepo _robotoRepo;
+        private readonly IEcommerceRepo _adminRepo;
         private readonly IBasketRepo _basketRepo;
         private readonly IOrderRepo _orderRepo;
 
         private readonly IConfiguration Configuration;
         private UserManager<ApplicationUser> _userManager;
 
-        public ShopController(IRobotoRepo robotoRepo, IConfiguration configuration, 
+        public ShopController(IEcommerceRepo adminRepo, IConfiguration configuration, 
             IBasketRepo basketRepo, IOrderRepo orderRepo, UserManager<ApplicationUser> userManager)
         {
-            _robotoRepo = robotoRepo;
+            _adminRepo = adminRepo;
             _basketRepo = basketRepo;
             _orderRepo = orderRepo;
             _userManager = userManager;
@@ -36,7 +36,7 @@ namespace Ecommerce.Controllers
         /// <returns>a list of items on search parameters (shows all products if search string is null)</returns>
         public IActionResult Index(string searchString)
         {
-            var products = _robotoRepo.GetProducts().Result.AsQueryable();
+            var products = _adminRepo.GetProducts().Result.AsQueryable();
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -60,7 +60,7 @@ namespace Ecommerce.Controllers
         {
             if (id == null) return NotFound();
 
-            var foundProduct = await _robotoRepo.GetProductById(id);
+            var foundProduct = await _adminRepo.GetProductById(id);
 
             if (foundProduct == null) return NotFound();
 
@@ -76,7 +76,7 @@ namespace Ecommerce.Controllers
         public async Task<IActionResult> Add(int? id)
         {
             var user = await _userManager.FindByEmailAsync(User.Identity.Name);
-            Product product = _robotoRepo.GetProductById(id).Result;
+            Product product = _adminRepo.GetProductById(id).Result;
             Basket basket = await _basketRepo.GetUserBasketByEmail(user.Email);
             if (basket == null)
             {
