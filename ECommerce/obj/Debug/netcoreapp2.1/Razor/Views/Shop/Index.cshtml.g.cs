@@ -161,7 +161,7 @@ WriteAttributeValue("", 1338, Html.DisplayFor(modelItem => product.ImgUrl), 1338
             WriteLiteral(" class=\"smaller-img\" />\r\n                    </td>\r\n                    <td>\r\n                        ");
             EndContext();
             BeginContext(1486, 108, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "86050b626fc542f1961e74f64a62a168", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e3e4546496a498d955211e9b81a940a", async() => {
                 BeginContext(1583, 7, true);
                 WriteLiteral("Details");
                 EndContext();

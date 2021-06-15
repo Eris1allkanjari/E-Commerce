@@ -60,7 +60,6 @@ C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\bin\Debug
 C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\bin\Debug\netcoreapp2.1\EcommerceApp.pdb
 C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\bin\Debug\netcoreapp2.1\EcommerceApp.Views.dll
 C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\bin\Debug\netcoreapp2.1\EcommerceApp.Views.pdb
-C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\obj\Debug\netcoreapp2.1\EcommerceApp.csprojAssemblyReference.cache
 C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\obj\Debug\netcoreapp2.1\EcommerceApp.AssemblyInfoInputs.cache
 C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\obj\Debug\netcoreapp2.1\EcommerceApp.AssemblyInfo.cs
 C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\obj\Debug\netcoreapp2.1\EcommerceApp.csproj.CoreCompileInputs.cache
@@ -104,3 +103,4 @@ C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\obj\Debug
 C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\obj\Debug\netcoreapp2.1\EcommerceApp.pdb
 C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\obj\Debug\netcoreapp2.1\EcommerceApp.genruntimeconfig.cache
 C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\obj\Debug\netcoreapp2.1\EcommerceApp.csproj.CopyComplete
+C:\Users\User\Desktop\Projects\eCommerce-master\EcommerceApp\ECommerce\obj\Debug\netcoreapp2.1\EcommerceApp.csprojAssemblyReference.cache

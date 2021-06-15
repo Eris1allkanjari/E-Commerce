@@ -201,7 +201,7 @@ WriteAttributeValue("", 1770, Html.DisplayFor(modelItem => product.ImgUrl), 1770
             WriteLiteral(" class=\"smaller-img\" />\r\n                    </td>\r\n                    <td>\r\n                        ");
             EndContext();
             BeginContext(1918, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f0b884aeceb94bc8b6ca3997b799ccf9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fdbfc1cf03e64ebe99aae821951d66aa", async() => {
                 BeginContext(1966, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -236,7 +236,7 @@ WriteAttributeValue("", 1770, Html.DisplayFor(modelItem => product.ImgUrl), 1770
             WriteLiteral("\r\n                        ");
             EndContext();
             BeginContext(2000, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c49dc383f9c4eeab8a440b7a7c3d9af", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53488c7c422c431ba65c694f1da89f58", async() => {
                 BeginContext(2051, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -271,7 +271,7 @@ WriteAttributeValue("", 1770, Html.DisplayFor(modelItem => product.ImgUrl), 1770
             WriteLiteral("\r\n                        ");
             EndContext();
             BeginContext(2088, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "777461d344f74f28a4de2c6ac75df29f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3c26c04b77b94f7f95b02dffcf04a194", async() => {
                 BeginContext(2138, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

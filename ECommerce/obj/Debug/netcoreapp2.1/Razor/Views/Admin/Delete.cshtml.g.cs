@@ -195,12 +195,12 @@ WriteAttributeValue("", 917, Html.DisplayFor(model => model.ImgUrl), 917, 39, fa
             WriteLiteral(" />\r\n    </dd>\r\n</dl>\r\n\r\n");
             EndContext();
             BeginContext(982, 191, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d40cf566f806468b93df1fda88a35c77", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3fc09f4139a245f3b6ba7132bb4a0282", async() => {
                 BeginContext(1008, 6, true);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(1014, 36, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "823974c1b5ae4783b50a72051e01b1af", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0accd7db32db48a6bb675aafab208758", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -225,7 +225,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n    <input type=\"submit\" value=\"Delete\" class=\"btn btn-primary\" />\r\n    ");
                 EndContext();
                 BeginContext(1124, 40, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "debb311021b548188ee78142fd808df3", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "263420cfe5584045a09be781e99b3e5c", async() => {
                     BeginContext(1148, 12, true);
                     WriteLiteral("Back to List");
                     EndContext();

@@ -220,6 +220,8 @@ namespace Ecommerce.Controllers
                     // empty out basket
                     await _basketRepo.ClearOutBasket(cvm.Basket.BasketItems);
 
+                    transaction.Commit();
+
                     return View("Confirmed", datOrder);
                 } catch (Exception e) {
                     transaction.Rollback();
